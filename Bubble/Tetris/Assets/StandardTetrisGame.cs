@@ -13,8 +13,11 @@ public class StandardTetrisGame
 
         IEnumerator<Tetramino> GetSequence()
         {
-            var kind = random.Next() % extractor.KindsCount;
-            yield return new Tetramino(extractor, kind, startingPosition, 0);
+            while (true)
+            {
+                var kind = random.Next() % extractor.KindsCount;
+                yield return new Tetramino(extractor, kind, startingPosition, 0);
+            }
         };
 
         var tetraminos = GetSequence();
