@@ -11,12 +11,19 @@ public class StandardTetrisGame
 
         var random = new Random();
 
-        IEnumerable<Tetramino> GetSequence()
+        IEnumerator<Tetramino> GetSequence()
         {
             var kind = random.Next() % extractor.KindsCount;
             yield return new Tetramino(extractor, kind, startingPosition, 0);
+        };
+
+        var tetraminos = GetSequence();
+
+        Tetramino nextTetramino()
+        {
+            tetraminos.MoveNext(); return tetraminos.Current;
         }
 
-        return new TetrisGame(GetSequence(), StandardBoundaries.Create());
+        return new TetrisGame(nextTetramino, StandardBoundaries.Create());
     }
 }
