@@ -2,7 +2,7 @@ namespace Bubble.Tetris;
 
 public class TetrisGame
 {
-    private readonly TetraminoFactory tetraminoFactory;
+    private readonly IEnumerator<Tetramino> tetraminos;
     private readonly IEnumerable<Block> boundaries;
     private readonly Pile pile = new();
     private Tetramino tetramino;
@@ -11,11 +11,12 @@ public class TetrisGame
 
     public int TotalLinesCollapsed { get; private set; }
 
-    public TetrisGame(TetraminoFactory tetraminoFactory, IEnumerable<Block> boundaries)
+    public TetrisGame(IEnumerable<Tetramino> tetraminos, IEnumerable<Block> boundaries)
     {
         this.boundaries = boundaries;
-        this.tetraminoFactory = tetraminoFactory;
-        tetramino = tetraminoFactory.Create();
+        this.tetraminos = tetraminos.GetEnumerator();
+        this.tetraminos.MoveNext();
+        tetramino = this.tetraminos.Current;
     }
 
     private IEnumerable<Block> CollidableBlocks => boundaries.Concat(pile.Blocks);
@@ -35,7 +36,8 @@ public class TetrisGame
         {
             LinesCollapsed = pile.AddRange(tetramino.Blocks);
             TotalLinesCollapsed += LinesCollapsed;
-            tetramino = tetraminoFactory.Create();
+            tetraminos.MoveNext();
+            tetramino = tetraminos.Current;
         }
         else
         {
