@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cabinet.Tests", "Cabinet.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bubble.Tests", "Bubble.Tests\Bubble.Tests.csproj", "{BE6171FB-C5B4-4794-ABC0-8E56DAFFD3FD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{28CDE2C9-7674-4249-B0A3-5798D0EBC436}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A8439524-5E38-496A-9AB7-185ED16B6AD8} = {28CDE2C9-7674-4249-B0A3-5798D0EBC436}
+		{B5FE3626-2AA8-4A40-804A-A5343A5D281B} = {28CDE2C9-7674-4249-B0A3-5798D0EBC436}
+		{BE6171FB-C5B4-4794-ABC0-8E56DAFFD3FD} = {28CDE2C9-7674-4249-B0A3-5798D0EBC436}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35B5FF5A-4972-4227-9A20-EF236359BED6}
