@@ -4,7 +4,7 @@ namespace Bubble.Tetris.Assets;
 
 public static class StandardTetraminos
 {
-    public static List<List<List<Block>>> Data => new() { ITetramino, OTetramino, LTetramino };
+    public static List<List<List<Block>>> Data => new() { ITetramino, OTetramino, LTetramino, JTetramino };
 
     public static List<List<Block>> ITetramino =>
         new()
@@ -70,4 +70,36 @@ public static class StandardTetraminos
             },
         };
 
+    public static List<List<Block>> JTetramino =>
+        new()
+        {
+            new()
+            {
+                new("J", new Vector2(0, 0)),
+                new("J", new Vector2(0, -1)),
+                new("J", new Vector2(0, -2)),
+                new("J", new Vector2(-1, -2)),
+            },
+            new()
+            {
+                new("J", new Vector2(-1, 0)),
+                new("J", new Vector2(-1, -1)),
+                new("J", new Vector2(0, -1)),
+                new("J", new Vector2(1, -1)),
+            },
+            new()
+            {
+                new("J", new Vector2(0, 0)),
+                new("J", new Vector2(1, 0)),
+                new("J", new Vector2(0, -1)),
+                new("J", new Vector2(0, -2)),
+            },
+            new()
+            {
+                new("J", new Vector2(-1, -1)),
+                new("J", new Vector2(0, -1)),
+                new("J", new Vector2(1, -1)),
+                new("J", new Vector2(1, -2)),
+            },
+        };
 }
