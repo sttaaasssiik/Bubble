@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aesthetics", "Aesthetics\Aesthetics.csproj", "{525FDB6C-0ED9-43E2-810B-2318173F6B4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aesthetics", "Aesthetics\Aesthetics.csproj", "{525FDB6C-0ED9-43E2-810B-2318173F6B4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cabinet", "Cabinet\Cabinet.csproj", "{2D7C167C-25AE-4B74-9D72-9379DE065521}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cabinet", "Cabinet\Cabinet.csproj", "{2D7C167C-25AE-4B74-9D72-9379DE065521}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aesthetics.VisualTests", "Aesthetics.VisualTests\Aesthetics.VisualTests.csproj", "{A8439524-5E38-496A-9AB7-185ED16B6AD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aesthetics.VisualTests", "Aesthetics.VisualTests\Aesthetics.VisualTests.csproj", "{A8439524-5E38-496A-9AB7-185ED16B6AD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bubble.Aesthetics", "Bubble.Aesthetics\Bubble.Aesthetics.csproj", "{69809B17-F837-420F-A900-D8D02033FC23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bubble.Aesthetics", "Bubble.Aesthetics\Bubble.Aesthetics.csproj", "{69809B17-F837-420F-A900-D8D02033FC23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bubble", "Bubble\Bubble.csproj", "{B9219695-9294-4321-8F24-3B037D668DA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bubble", "Bubble\Bubble.csproj", "{B9219695-9294-4321-8F24-3B037D668DA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cabinet.Tests", "Cabinet.Tests\Cabinet.Tests.csproj", "{B5FE3626-2AA8-4A40-804A-A5343A5D281B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B9219695-9294-4321-8F24-3B037D668DA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9219695-9294-4321-8F24-3B037D668DA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9219695-9294-4321-8F24-3B037D668DA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5FE3626-2AA8-4A40-804A-A5343A5D281B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5FE3626-2AA8-4A40-804A-A5343A5D281B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5FE3626-2AA8-4A40-804A-A5343A5D281B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5FE3626-2AA8-4A40-804A-A5343A5D281B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
