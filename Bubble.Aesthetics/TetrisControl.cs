@@ -12,7 +12,7 @@ namespace Bubble.Aesthetics;
 
 public class TetrisControl : Control
 {
-    private readonly TetrisGame tetrisGame = CreateTetrisGame();
+    private readonly TetrisGame tetrisGame = StandardTetrisGame.Create();
 
     private readonly Dictionary<Key, Action<TetrisGame>> keyboard = new()
     {
@@ -62,13 +62,5 @@ public class TetrisControl : Control
         linesCounter.Render(drawingContext);
 
         SDL.SDL_RenderPresent(drawingContext.Id);
-    }
-
-    private static TetrisGame CreateTetrisGame()
-    {
-        var tetraminosBlockRepresentation = new TetraminoAssetExtractor(StandardTetraminos.Data);
-        var position = new Vector2(4, 18);
-        var tetraminoFactory = new TetraminoFactory(tetraminosBlockRepresentation, position);
-        return new TetrisGame(tetraminoFactory, StandardBoundaries.Create());
     }
 }
