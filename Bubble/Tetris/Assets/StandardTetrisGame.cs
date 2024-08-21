@@ -22,11 +22,11 @@ public class StandardTetrisGame
 
         var tetraminos = GetSequence();
 
-        Tetramino nextTetramino()
+        Tetramino NextTetramino()
         {
             tetraminos.MoveNext(); return tetraminos.Current;
         }
 
-        return new TetrisGame(nextTetramino, StandardBoundaries.Create());
+        return new TetrisGame(NextTetramino, StandardBoundaries.Create());
     }
 }
