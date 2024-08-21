@@ -39,13 +39,7 @@ public class Tetramino
 
     public bool IsCollided(IEnumerable<Block> blocks)
     {
-        return Blocks.Intersect(blocks, new BlockPositionComparer()).Any();
-    }
-
-    public class BlockPositionComparer : EqualityComparer<Block>
-    {
-        public override bool Equals(Block x, Block y) => x.Position == y.Position;
-
-        public override int GetHashCode(Block obj) => 0;// obj.Position.X ^ obj.Position.Y;
+        var blockPositionComparer = EqualityComparer<Block>.Create((x, y) => x.Position == y.Position, b => 0);
+        return Blocks.Intersect(blocks, blockPositionComparer).Any();
     }
 }
