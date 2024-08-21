@@ -1,10 +1,10 @@
 namespace Bubble.Tetris;
 
-public class TetrisGame(Func<Tetramino> nextTetramino, IEnumerable<Block> boundaries)
+public class TetrisGame(ITetraminoSequence tetraminoSequence, IEnumerable<Block> boundaries)
 {
     private readonly IEnumerable<Block> boundaries = boundaries;
     private readonly Pile pile = new();
-    private Tetramino tetramino = nextTetramino();
+    private Tetramino tetramino = tetraminoSequence.Next;
 
     public int LinesCollapsed { get; private set; }
 
@@ -27,7 +27,7 @@ public class TetrisGame(Func<Tetramino> nextTetramino, IEnumerable<Block> bounda
         {
             LinesCollapsed = pile.AddRange(tetramino.Blocks);
             TotalLinesCollapsed += LinesCollapsed;
-            tetramino = nextTetramino();
+            tetramino = tetraminoSequence.Next;
         }
         else
         {

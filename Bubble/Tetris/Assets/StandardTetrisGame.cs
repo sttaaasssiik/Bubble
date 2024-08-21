@@ -9,24 +9,8 @@ public class StandardTetrisGame
         var extractor = new TetraminoAssetExtractor(StandardTetraminos.Data);
         var startingPosition = new Vector2(4, 18);
 
-        var random = new Random();
+        var sequence = new RandomTetraminoSequence(extractor, startingPosition);
 
-        IEnumerator<Tetramino> GetSequence()
-        {
-            while (true)
-            {
-                var kind = random.Next() % extractor.KindsCount;
-                yield return new Tetramino(extractor, kind, startingPosition, 0);
-            }
-        };
-
-        var tetraminos = GetSequence();
-
-        Tetramino NextTetramino()
-        {
-            tetraminos.MoveNext(); return tetraminos.Current;
-        }
-
-        return new TetrisGame(NextTetramino, StandardBoundaries.Create());
+        return new TetrisGame(sequence, StandardBoundaries.Create());
     }
 }
