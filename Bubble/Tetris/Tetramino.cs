@@ -4,7 +4,7 @@ namespace Bubble.Tetris;
 
 public class Tetramino
 {
-    private readonly TetraminoAssetExtractor representation;
+    private readonly TetraminoAssetExtractor extractor;
     private readonly int kind;
     private Vector2 position;
     private int rotation;
@@ -12,22 +12,22 @@ public class Tetramino
     public Vector2 Position => position;
 
     public IEnumerable<Block> Blocks =>
-        representation[kind, rotation]
+        extractor[kind, rotation]
         .Select(x => x with { Position = position + x.Position });
     //.Select(x => new Block(x.Id, position + x.Position));
 
     public Tetramino(TetraminoAssetExtractor tetraminoData, int kind, Vector2 position, int rotation)
     {
-        representation = tetraminoData;
+        extractor = tetraminoData;
         this.kind = kind;
         this.position = position;
         this.rotation = rotation;
     }
 
-    public Tetramino Clone() => new(representation, kind, position, rotation);
+    public Tetramino Clone() => new(extractor, kind, position, rotation);
 
     public void Rotate() =>
-        rotation = rotation < representation.GetRotationsForKindCount(kind) - 1
+        rotation = rotation < extractor.GetRotationsForKindCount(kind) - 1
         ? rotation + 1
         : 0;
 
