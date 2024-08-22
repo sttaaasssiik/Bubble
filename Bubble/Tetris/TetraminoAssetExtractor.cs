@@ -1,13 +1,8 @@
 ﻿namespace Bubble.Tetris;
 
-public class TetraminoAssetExtractor
+public class TetraminoAssetExtractor(List<List<List<Block>>> tetraminoAssets)
 {
-    private readonly List<List<List<Block>>> tetraminoAssets;
-
-    public TetraminoAssetExtractor(List<List<List<Block>>> tetraminoAssets)
-    {
-        this.tetraminoAssets = tetraminoAssets;
-    }
+    private readonly List<List<List<Block>>> tetraminoAssets = tetraminoAssets;
 
     public int GetRotationsForKindCount(int kind) => tetraminoAssets[kind].Count;
 
