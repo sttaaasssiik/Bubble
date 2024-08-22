@@ -2,27 +2,18 @@
 
 namespace Bubble.Tetris;
 
-public class Tetramino
+public class Tetramino(TetraminoAssetExtractor tetraminoData, int kind, Vector2 position, int rotation)
 {
-    private readonly TetraminoAssetExtractor extractor;
-    private readonly int kind;
-    private Vector2 position;
-    private int rotation;
+    private readonly TetraminoAssetExtractor extractor = tetraminoData;
+    private readonly int kind = kind;
+
+    private Vector2 position = position;
+    private int rotation = rotation;
 
     public Vector2 Position => position;
 
-    public IEnumerable<Block> Blocks =>
-        extractor[kind, rotation]
+    public IEnumerable<Block> Blocks => extractor[kind, rotation]
         .Select(x => x with { Position = position + x.Position });
-    //.Select(x => new Block(x.Id, position + x.Position));
-
-    public Tetramino(TetraminoAssetExtractor tetraminoData, int kind, Vector2 position, int rotation)
-    {
-        extractor = tetraminoData;
-        this.kind = kind;
-        this.position = position;
-        this.rotation = rotation;
-    }
 
     public Tetramino Clone() => new(extractor, kind, position, rotation);
 
