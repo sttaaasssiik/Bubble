@@ -39,7 +39,8 @@ public class Tetramino
 
     public bool IsCollided(IEnumerable<Block> blocks)
     {
-        var blockPositionComparer = EqualityComparer<Block>.Create((x, y) => x.Position == y.Position, b => 0);
+        static bool equals(Block x, Block y) => x.Position == y.Position;
+        var blockPositionComparer = EqualityComparer<Block>.Create(equals, b => 0);
         return Blocks.Intersect(blocks, blockPositionComparer).Any();
     }
 }
