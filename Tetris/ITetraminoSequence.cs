@@ -1,4 +1,4 @@
-﻿namespace Bubble.Tetris;
+﻿namespace Tetris;
 
 public interface ITetraminoSequence
 {

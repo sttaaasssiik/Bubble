@@ -2,10 +2,10 @@
 using Aesthetics.Controls;
 using Aesthetics.Input;
 using Aesthetics.Rendering;
-using Bubble.Tetris;
-using Bubble.Tetris.Assets;
 using Cabinet;
 using SDL2;
+using Tetris;
+using Tetris.Assets;
 using Timer = System.Timers.Timer;
 
 namespace Bubble.Aesthetics;

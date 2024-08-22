@@ -1,6 +1,6 @@
 ﻿using Cabinet;
 
-namespace Bubble.Tetris;
+namespace Tetris;
 
 public class Tetramino(TetraminoAssetExtractor extractor, int kind, int rotation, Vector2 position)
 {

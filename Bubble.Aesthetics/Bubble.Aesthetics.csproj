@@ -11,6 +11,7 @@
     <ProjectReference Include="..\Aesthetics\Aesthetics.csproj" />
     <ProjectReference Include="..\Bubble\Bubble.csproj" />
     <ProjectReference Include="..\Cabinet\Cabinet.csproj" />
+    <ProjectReference Include="..\Tetris\Tetris.csproj" />
   </ItemGroup>
 
   <ItemGroup>

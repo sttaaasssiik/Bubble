@@ -1,6 +1,6 @@
 ﻿using Cabinet;
 
-namespace Bubble.Tetris.Assets;
+namespace Tetris.Assets;
 
 public class StandardTetrisGame
 {

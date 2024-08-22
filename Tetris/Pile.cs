@@ -1,6 +1,6 @@
 ﻿using Cabinet;
 
-namespace Bubble.Tetris;
+namespace Tetris;
 
 public class Pile
 {
