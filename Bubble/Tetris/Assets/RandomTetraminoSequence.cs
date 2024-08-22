@@ -7,19 +7,6 @@ public class RandomTetraminoSequence : ITetraminoSequence
     private readonly IEnumerator<Tetramino> tetraminos;
     private Tetramino next;
 
-    public Tetramino Next
-    {
-        get
-        {
-            next = AfterNext;
-            tetraminos.MoveNext();
-            AfterNext = tetraminos.Current;
-            return next;
-        }
-    }
-
-    public Tetramino AfterNext { get; private set; }
-
     public RandomTetraminoSequence(TetraminoAssetExtractor tetraminoAssetExtractor)
     {
         var random = new Random();
@@ -40,4 +27,17 @@ public class RandomTetraminoSequence : ITetraminoSequence
         tetraminos.MoveNext();
         AfterNext = tetraminos.Current;
     }
+
+    public Tetramino Next
+    {
+        get
+        {
+            next = AfterNext;
+            tetraminos.MoveNext();
+            AfterNext = tetraminos.Current;
+            return next;
+        }
+    }
+
+    public Tetramino AfterNext { get; private set; }
 }
