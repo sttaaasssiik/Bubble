@@ -22,12 +22,47 @@ public static class StandardTetraminos
                 new("I", new Vector2(-1, -1)),
                 new("I", new Vector2(0, -1)),
                 new("I", new Vector2(1, -1))
+            },
+            new ()
+            {
+                new("I", new Vector2(0, 0)),
+                new("I", new Vector2(0, -1)),
+                new("I", new Vector2(0, -2)),
+                new("I", new Vector2(0, -3)),
+            },
+            new ()
+            {
+                new("I", new Vector2(-2, -1)),
+                new("I", new Vector2(-1, -1)),
+                new("I", new Vector2(0, -1)),
+                new("I", new Vector2(1, -1))
             }
         };
 
     public static List<List<Block>> OTetramino =>
         new()
         {
+            new()
+            {
+                new("O", new Vector2(0, 0)),
+                new("O", new Vector2(0, -1)),
+                new("O", new Vector2(1, 0)),
+                new("O", new Vector2(1, -1)),
+            },
+            new()
+            {
+                new("O", new Vector2(0, 0)),
+                new("O", new Vector2(0, -1)),
+                new("O", new Vector2(1, 0)),
+                new("O", new Vector2(1, -1)),
+            },
+            new()
+            {
+                new("O", new Vector2(0, 0)),
+                new("O", new Vector2(0, -1)),
+                new("O", new Vector2(1, 0)),
+                new("O", new Vector2(1, -1)),
+            },
             new()
             {
                 new("O", new Vector2(0, 0)),

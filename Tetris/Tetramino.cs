@@ -15,10 +15,7 @@ public class Tetramino(TetraminoAssets tetraminoAssets, int kind, int rotation, 
 
     public Tetramino Clone() => new(tetraminoAssets, kind, rotation, Position);
 
-    public void Rotate() =>
-        rotation = rotation < tetraminoAssets.GetRotationsForKindCount(kind) - 1
-        ? rotation + 1
-        : 0;
+    public void Rotate() => rotation = rotation < 3 ? rotation + 1 : 0;
 
     public void MoveDown() => Position -= Vector2.Up;
 
