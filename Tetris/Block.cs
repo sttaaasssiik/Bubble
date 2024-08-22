@@ -2,7 +2,7 @@
 
 namespace Tetris;
 
-public struct Block
+public record Block
 {
     public string Id { get; private set; }
 
