@@ -17,6 +17,6 @@ public class TetraminoFactory
     public Tetramino Create()
     {
         var kind = random.Next() % representation.KindsCount;
-        return new Tetramino(representation, kind, startingPosition, 0);
+        return new Tetramino(representation, kind, 0, startingPosition);
     }
 }

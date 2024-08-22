@@ -2,18 +2,18 @@
 
 namespace Bubble.Tetris;
 
-public class Tetramino(TetraminoAssetExtractor tetraminoData, int kind, Vector2 startingPosition, int rotation)
+public class Tetramino(TetraminoAssetExtractor extractor, int kind, int rotation, Vector2 position)
 {
-    private readonly TetraminoAssetExtractor extractor = tetraminoData;
+    private readonly TetraminoAssetExtractor extractor = extractor;
     private readonly int kind = kind;
     private int rotation = rotation;
 
-    public Vector2 Position { get; private set; } = startingPosition;
+    public Vector2 Position { get; private set; } = position;
 
     public IEnumerable<Block> Blocks => extractor[kind, rotation]
         .Select(x => (x with { Position = Position + x.Position }));
 
-    public Tetramino Clone() => new(extractor, kind, Position, rotation);
+    public Tetramino Clone() => new(extractor, kind, rotation, Position);
 
     public void Rotate() =>
         rotation = rotation < extractor.GetRotationsForKindCount(kind) - 1
