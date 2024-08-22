@@ -7,7 +7,7 @@ public class RandomTetraminoSequence : ITetraminoSequence
     private readonly IEnumerator<Tetramino> tetraminos;
     private Tetramino next;
 
-    public RandomTetraminoSequence(TetraminoAssetExtractor tetraminoAssetExtractor)
+    public RandomTetraminoSequence(TetraminoAssets tetraminoAssetExtractor)
     {
         var random = new Random();
 

@@ -1,6 +1,6 @@
 ﻿namespace Tetris;
 
-public class TetraminoAssetExtractor(List<List<List<Block>>> tetraminoAssets)
+public class TetraminoAssets(List<List<List<Block>>> tetraminoAssets)
 {
     private readonly List<List<List<Block>>> tetraminoAssets = tetraminoAssets;
 

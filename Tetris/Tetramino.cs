@@ -2,21 +2,21 @@
 
 namespace Tetris;
 
-public class Tetramino(TetraminoAssetExtractor extractor, int kind, int rotation, Vector2 position)
+public class Tetramino(TetraminoAssets tetraminoAssets, int kind, int rotation, Vector2 position)
 {
-    private readonly TetraminoAssetExtractor extractor = extractor;
+    private readonly TetraminoAssets tetraminoAssets = tetraminoAssets;
     private readonly int kind = kind;
     private int rotation = rotation;
 
     public Vector2 Position { get; internal set; } = position;
 
-    public IEnumerable<Block> Blocks => extractor[kind, rotation]
+    public IEnumerable<Block> Blocks => tetraminoAssets[kind, rotation]
         .Select(x => (x with { Position = Position + x.Position }));
 
-    public Tetramino Clone() => new(extractor, kind, rotation, Position);
+    public Tetramino Clone() => new(tetraminoAssets, kind, rotation, Position);
 
     public void Rotate() =>
-        rotation = rotation < extractor.GetRotationsForKindCount(kind) - 1
+        rotation = rotation < tetraminoAssets.GetRotationsForKindCount(kind) - 1
         ? rotation + 1
         : 0;
 
