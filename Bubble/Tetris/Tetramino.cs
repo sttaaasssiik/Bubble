@@ -8,7 +8,7 @@ public class Tetramino(TetraminoAssetExtractor extractor, int kind, int rotation
     private readonly int kind = kind;
     private int rotation = rotation;
 
-    public Vector2 Position { get; private set; } = position;
+    public Vector2 Position { get; internal set; } = position;
 
     public IEnumerable<Block> Blocks => extractor[kind, rotation]
         .Select(x => (x with { Position = Position + x.Position }));

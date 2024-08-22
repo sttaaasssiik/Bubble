@@ -20,7 +20,7 @@ public class RandomTetraminoSequence : ITetraminoSequence
 
     public Tetramino AfterNext { get; private set; }
 
-    public RandomTetraminoSequence(TetraminoAssetExtractor tetraminoAssetExtractor, Vector2 startingPosition)
+    public RandomTetraminoSequence(TetraminoAssetExtractor tetraminoAssetExtractor)
     {
         var random = new Random();
 
@@ -29,7 +29,7 @@ public class RandomTetraminoSequence : ITetraminoSequence
             while (true)
             {
                 var kind = random.Next() % tetraminoAssetExtractor.KindsCount;
-                yield return new Tetramino(tetraminoAssetExtractor, kind, 0, startingPosition);
+                yield return new Tetramino(tetraminoAssetExtractor, kind, 0, new Vector2(0, 0));
             }
         }
 

@@ -1,10 +1,23 @@
+using Cabinet;
+
 namespace Bubble.Tetris;
 
-public class TetrisGame(ITetraminoSequence tetraminoSequence, IEnumerable<Block> boundaries)
+public class TetrisGame
 {
-    private readonly IEnumerable<Block> boundaries = boundaries;
+    private readonly IEnumerable<Block> boundaries;
     private readonly Pile pile = new();
-    private Tetramino tetramino = tetraminoSequence.Next;
+    private readonly Vector2 startingPosition;
+    private readonly ITetraminoSequence tetraminoSequence;
+
+    private Tetramino tetramino;
+
+    public TetrisGame(ITetraminoSequence tetraminoSequence, IEnumerable<Block> boundaries, Vector2 startingPosition)
+    {
+        this.tetraminoSequence = tetraminoSequence;
+        this.boundaries = boundaries;
+        this.startingPosition = startingPosition;
+        tetramino = InitTetramino();
+    }
 
     public int LinesCollapsed { get; private set; }
 
@@ -27,7 +40,7 @@ public class TetrisGame(ITetraminoSequence tetraminoSequence, IEnumerable<Block>
         {
             LinesCollapsed = pile.AddRange(tetramino.Blocks);
             TotalLinesCollapsed += LinesCollapsed;
-            tetramino = tetraminoSequence.Next;
+            tetramino = InitTetramino();
         }
         else
         {
@@ -53,5 +66,12 @@ public class TetrisGame(ITetraminoSequence tetraminoSequence, IEnumerable<Block>
         {
             tetramino = clone;
         }
+    }
+
+    private Tetramino InitTetramino()
+    {
+        var tetramino = tetraminoSequence.Next;
+        tetramino.Position = startingPosition;
+        return tetramino;
     }
 }
