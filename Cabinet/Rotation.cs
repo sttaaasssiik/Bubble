@@ -1,4 +1,4 @@
-﻿namespace Tetris;
+﻿namespace Cabinet;
 
 public enum Rotation
 {
