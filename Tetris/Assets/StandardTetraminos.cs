@@ -6,8 +6,7 @@ public static class StandardTetraminos
 {
     public static List<List<List<Block>>> Data => new() { ITetramino, OTetramino, LTetramino, JTetramino };
 
-    public static List<List<Block>> ITetramino =>
-        new()
+    public static List<List<Block>> ITetramino => new()
         {
             new ()
             {
@@ -39,8 +38,7 @@ public static class StandardTetraminos
             }
         };
 
-    public static List<List<Block>> OTetramino =>
-        new()
+    public static List<List<Block>> OTetramino => new()
         {
             new()
             {
@@ -72,8 +70,7 @@ public static class StandardTetraminos
             },
         };
 
-    public static List<List<Block>> LTetramino =>
-        new()
+    public static List<List<Block>> LTetramino => new()
         {
             new()
             {
@@ -105,8 +102,7 @@ public static class StandardTetraminos
             },
         };
 
-    public static List<List<Block>> JTetramino =>
-        new()
+    public static List<List<Block>> JTetramino => new()
         {
             new()
             {
