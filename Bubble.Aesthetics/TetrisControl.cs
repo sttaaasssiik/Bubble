@@ -25,9 +25,11 @@ public class TetrisControl : Control
     private readonly Dictionary<string, Color> colors = new()
     {
         ["I"] = Color.FromRgba(230, 35, 35, 255),
-        ["O"] = Color.FromRgba(35, 35, 230, 255),
-        ["L"] = Color.FromRgba(160, 105, 35, 255),
-        ["J"] = Color.FromRgba(35, 230, 35, 255)
+        ["O"] = Color.FromRgba(35, 230, 35, 255),
+        ["L"] = Color.FromRgba(35, 35, 230, 255),
+        ["J"] = Color.FromRgba(200, 200, 200, 255),
+        ["S"] = Color.FromRgba(200, 200, 200, 255),
+        ["Z"] = Color.FromRgba(200, 200, 200, 255),
     };
 
     private readonly DotMatrixDisplaySimple field = new()
