@@ -4,7 +4,15 @@ namespace Tetris.Assets;
 
 public static class StandardTetraminos
 {
-    public static List<List<List<Block>>> Data => new() { ITetramino, OTetramino, LTetramino, JTetramino };
+    public static List<List<List<Block>>> Data => new()
+    {
+        ITetramino,
+        OTetramino,
+        LTetramino,
+        JTetramino,
+        STetramino,
+        ZTetramino
+    };
 
     public static List<List<Block>> ITetramino => new()
         {
@@ -131,6 +139,70 @@ public static class StandardTetraminos
                 new("J", new Vector2(0, -1)),
                 new("J", new Vector2(1, -1)),
                 new("J", new Vector2(1, -2)),
+            },
+        };
+
+    public static List<List<Block>> STetramino => new()
+        {
+            new()
+            {
+                new("S", new Vector2(0, 0)),
+                new("S", new Vector2(1, 0)),
+                new("S", new Vector2(0, -1)),
+                new("S", new Vector2(-1, -1)),
+            },
+            new()
+            {
+                new("S", new Vector2(0, 1)),
+                new("S", new Vector2(0, 0)),
+                new("S", new Vector2(1, 0)),
+                new("S", new Vector2(1, -1)),
+            },
+            new()
+            {
+                new("S", new Vector2(0, 0)),
+                new("S", new Vector2(1, 0)),
+                new("S", new Vector2(0, -1)),
+                new("S", new Vector2(-1, -1)),
+            },
+            new()
+            {
+                new("S", new Vector2(0, 1)),
+                new("S", new Vector2(0, 0)),
+                new("S", new Vector2(1, 0)),
+                new("S", new Vector2(1, -1)),
+            },
+        };
+
+    public static List<List<Block>> ZTetramino => new()
+        {
+            new()
+            {
+                new("Z", new Vector2(0, 0)),
+                new("Z", new Vector2(1, 0)),
+                new("Z", new Vector2(1, -1)),
+                new("Z", new Vector2(2, -1)),
+            },
+            new()
+            {
+                new("Z", new Vector2(2, 1)),
+                new("Z", new Vector2(2, 0)),
+                new("Z", new Vector2(1, 0)),
+                new("Z", new Vector2(1, -1)),
+            },
+            new()
+            {
+                new("Z", new Vector2(0, 0)),
+                new("Z", new Vector2(1, 0)),
+                new("Z", new Vector2(1, -1)),
+                new("Z", new Vector2(2, -1)),
+            },
+            new()
+            {
+                new("Z", new Vector2(2, 1)),
+                new("Z", new Vector2(2, 0)),
+                new("Z", new Vector2(1, 0)),
+                new("Z", new Vector2(1, -1)),
             },
         };
 }
