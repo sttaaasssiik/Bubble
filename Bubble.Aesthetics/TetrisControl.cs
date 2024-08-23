@@ -22,6 +22,14 @@ public class TetrisControl : Control
         [Key.Left] = tetrisGame => tetrisGame.MoveLeft(),
     };
 
+    private readonly Dictionary<string, Color> colors = new()
+    {
+        ["I"] = Color.FromRgba(230, 35, 35, 255),
+        ["O"] = Color.FromRgba(35, 35, 230, 255),
+        ["L"] = Color.FromRgba(160, 105, 35, 255),
+        ["J"] = Color.FromRgba(35, 230, 35, 255)
+    };
+
     private readonly DotMatrixDisplaySimple field = new()
     {
         Background = Color.FromRgba(50, 50, 50, 255),
@@ -53,7 +61,12 @@ public class TetrisControl : Control
     protected override void OnRender(DrawingContext drawingContext)
     {
         static Vector2 TransformPosition(Vector2 pos) => new(pos.X, -pos.Y + 19);
-        field.Dots = tetrisGame.Field.Select(x => (TransformPosition(x.Position), Color.FromRgba(230, 35, 35, 255)));
+        Color getColor(string id) =>
+            colors.TryGetValue(id, out var color)
+            ? color
+            : Color.FromRgba(0, 0, 255, 255);
+
+        field.Dots = tetrisGame.Field.Select(x => (TransformPosition(x.Position), getColor(x.Id)));
         field.Render(drawingContext);
 
         linesCounter.Dots = Enumerable
