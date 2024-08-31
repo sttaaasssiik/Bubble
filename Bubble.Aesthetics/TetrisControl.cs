@@ -47,14 +47,14 @@ public class TetrisControl : Control
 		DotSize = new Vector2(10, 10)
 	};
 
-	private readonly Timer timer = new(1000);
-
 	public TetrisControl()
 	{
+		var timer = new Timer(1000);
 		timer.Elapsed += (x, y) => tetrisGame.MoveDown();
 		timer.Start();
 
 		static Vector2 TransformPosition(Vector2 pos) => new(pos.X, -pos.Y + 19);
+
 		Color getColor(string id) =>
 			colors.TryGetValue(id, out var color)
 			? color
