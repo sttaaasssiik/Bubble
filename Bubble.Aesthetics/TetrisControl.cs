@@ -55,14 +55,9 @@ public class TetrisControl : Control
 
 		static Vector2 TransformPosition(Vector2 pos) => new(pos.X, -pos.Y + 19);
 
-		Color getColor(string id) =>
-			colors.TryGetValue(id, out var color)
-			? color
-			: Color.FromRgba(0, 0, 255, 255);
-
 		tetrisGame.FieldChanged += f =>
 		{
-			field.Dots = f.Select(x => (TransformPosition(x.Position), getColor(x.Id)));
+			field.Dots = f.Select(x => (TransformPosition(x.Position), colors[x.Id]));
 			linesCounter.Dots = Enumerable
 				.Range(0, tetrisGame.TotalLinesCollapsed)
 				.Select(x => (new Vector2(x, 0), Color.FromRgba(230, 35, 35, 255)));
