@@ -49,14 +49,14 @@ public class TetrisControl : Control
 
 	public TetrisControl()
 	{
-		Action<TetrisGame> stateChanged = tG =>
+		void stateChanged(TetrisGame tG)
 		{
 			static Vector2 TransformPosition(Vector2 pos) => new(pos.X, -pos.Y + 19);
 			field.Dots = tG.Field.Select(x => (TransformPosition(x.Position), colors[x.Id]));
 			linesCounter.Dots = Enumerable
 				.Range(0, tG.TotalLinesCollapsed)
 				.Select(x => (new Vector2(x, 0), Color.FromRgba(230, 35, 35, 255)));
-		};
+		}
 		tetrisGame = StandardTetrisGame.Create(stateChanged);
 
 		var timer = new Timer(1000);
