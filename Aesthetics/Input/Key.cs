@@ -2,8 +2,8 @@
 
 public enum Key
 {
-    Down,
-    Up,
-    Right,
-    Left
+	Down,
+	Up,
+	Right,
+	Left
 }

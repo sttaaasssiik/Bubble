@@ -2,11 +2,11 @@
 
 public class TetraminoAssets(List<List<List<Block>>> tetraminoAssets)
 {
-    private readonly List<List<List<Block>>> tetraminoAssets = tetraminoAssets;
+	private readonly List<List<List<Block>>> tetraminoAssets = tetraminoAssets;
 
-    public int GetRotationsForKindCount(int kind) => tetraminoAssets[kind].Count;
+	public int GetRotationsForKindCount(int kind) => tetraminoAssets[kind].Count;
 
-    public int KindsCount => tetraminoAssets.Count;
+	public int KindsCount => tetraminoAssets.Count;
 
-    public IEnumerable<Block> this[int kind, int rotation] => tetraminoAssets[kind][rotation];
+	public IEnumerable<Block> this[int kind, int rotation] => tetraminoAssets[kind][rotation];
 }

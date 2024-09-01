@@ -2,5 +2,5 @@
 
 public interface ITetraminoSequence
 {
-    public Tetramino Next { get; }
+	public Tetramino Next { get; }
 }

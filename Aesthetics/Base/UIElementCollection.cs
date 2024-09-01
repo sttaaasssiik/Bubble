@@ -2,13 +2,13 @@
 
 public class UIElementCollection
 {
-    private readonly List<Control> uIElements = [];
+	private readonly List<Control> uIElements = [];
 
-    private readonly Canvas canvas;
+	private readonly Canvas canvas;
 
-    internal UIElementCollection(Canvas canvas) => this.canvas = canvas;
+	internal UIElementCollection(Canvas canvas) => this.canvas = canvas;
 
-    public void Add(Control uIElement) => uIElements.Add(uIElement);
+	public void Add(Control uIElement) => uIElements.Add(uIElement);
 
-    public IEnumerator<Control> GetEnumerator() => uIElements.GetEnumerator();
+	public IEnumerator<Control> GetEnumerator() => uIElements.GetEnumerator();
 }

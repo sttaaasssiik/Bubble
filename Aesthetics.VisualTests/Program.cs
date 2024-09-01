@@ -4,8 +4,8 @@ namespace Aesthetics.VisualTests;
 
 internal class Program
 {
-    static void Main()
-    {
-        new DotMatrixDisplaySimpleTest().Run();
-    }
+	static void Main()
+	{
+		new DotMatrixDisplaySimpleTest().Run();
+	}
 }

@@ -4,8 +4,8 @@ namespace Bubble.UI;
 
 internal class Program
 {
-    static void Main()
-    {
-        new MyWindow().Run();
-    }
+	static void Main()
+	{
+		new MyWindow().Run();
+	}
 }

@@ -2,6 +2,6 @@
 
 public enum GameState
 {
-    Running,
-    GameOver
+	Running,
+	GameOver
 }

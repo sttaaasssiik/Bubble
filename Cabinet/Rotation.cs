@@ -2,8 +2,8 @@
 
 public enum Rotation
 {
-    Up,
-    Right,
-    Down,
-    Left
+	Up,
+	Right,
+	Down,
+	Left
 }

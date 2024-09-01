@@ -4,5 +4,5 @@ namespace Aesthetics.Input;
 
 public class UIEventArgs : EventArgs
 {
-    public SDL.SDL_Event SDL_Event { get; internal set; }
+	public SDL.SDL_Event SDL_Event { get; internal set; }
 }
