@@ -12,7 +12,7 @@ namespace Bubble.Aesthetics;
 
 public class TetrisControl : Control
 {
-	private readonly TetrisGame tetrisGame = StandardTetrisGame.Create();
+	private readonly TetrisGame tetrisGame;
 
 	private readonly Dictionary<Key, Action<TetrisGame>> keyboard = new()
 	{
@@ -49,19 +49,19 @@ public class TetrisControl : Control
 
 	public TetrisControl()
 	{
+		Action<TetrisGame> stateChanged = tG =>
+		{
+			static Vector2 TransformPosition(Vector2 pos) => new(pos.X, -pos.Y + 19);
+			field.Dots = tG.Field.Select(x => (TransformPosition(x.Position), colors[x.Id]));
+			linesCounter.Dots = Enumerable
+				.Range(0, tG.TotalLinesCollapsed)
+				.Select(x => (new Vector2(x, 0), Color.FromRgba(230, 35, 35, 255)));
+		};
+		tetrisGame = StandardTetrisGame.Create(stateChanged);
+
 		var timer = new Timer(1000);
 		timer.Elapsed += (x, y) => tetrisGame.MoveDown();
 		timer.Start();
-
-		static Vector2 TransformPosition(Vector2 pos) => new(pos.X, -pos.Y + 19);
-
-		tetrisGame.FieldChanged += f =>
-		{
-			field.Dots = f.Select(x => (TransformPosition(x.Position), colors[x.Id]));
-			linesCounter.Dots = Enumerable
-				.Range(0, tetrisGame.TotalLinesCollapsed)
-				.Select(x => (new Vector2(x, 0), Color.FromRgba(230, 35, 35, 255)));
-		};
 	}
 
 	public override void OnKeyDown(Key key)

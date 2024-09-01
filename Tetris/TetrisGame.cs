@@ -11,16 +11,21 @@ public class TetrisGame
 
 	private Tetramino tetramino;
 
-	public TetrisGame(ITetraminoSequence tetraminoSequence, IEnumerable<Block> boundaries, Vector2 startingPosition)
+	public TetrisGame(
+		ITetraminoSequence tetraminoSequence,
+		IEnumerable<Block> boundaries,
+		Vector2 startingPosition,
+		Action<TetrisGame>? stateChanged)
 	{
 		this.tetraminoSequence = tetraminoSequence;
 		this.boundaries = boundaries;
 		this.startingPosition = startingPosition;
 		tetramino = InitTetramino();
-		FieldChanged?.Invoke(Field);
+		StateChanged += stateChanged;
+		StateChanged?.Invoke(this);
 	}
 
-	public event Action<IEnumerable<Block>>? FieldChanged;
+	public event Action<TetrisGame>? StateChanged;
 
 	public int LinesCollapsed { get; private set; }
 
@@ -33,7 +38,7 @@ public class TetrisGame
 	public void Rotate()
 	{
 		Move(x => x.Rotate());
-		FieldChanged?.Invoke(Field);
+		StateChanged?.Invoke(this);
 	}
 
 	public void MoveDown()
@@ -50,19 +55,19 @@ public class TetrisGame
 		{
 			tetramino = clone;
 		}
-		FieldChanged?.Invoke(Field);
+		StateChanged?.Invoke(this);
 	}
 
 	public void MoveLeft()
 	{
 		Move(x => x.MoveLeft());
-		FieldChanged?.Invoke(Field);
+		StateChanged?.Invoke(this);
 	}
 
 	public void MoveRight()
 	{
 		Move(x => x.MoveRight());
-		FieldChanged?.Invoke(Field);
+		StateChanged?.Invoke(this);
 	}
 
 	private void Move(Action<Tetramino> action)
@@ -73,7 +78,7 @@ public class TetrisGame
 		{
 			tetramino = clone;
 		}
-		FieldChanged?.Invoke(Field);
+		StateChanged?.Invoke(this);
 	}
 
 	private Tetramino InitTetramino()
